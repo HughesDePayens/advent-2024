@@ -1,16 +1,11 @@
 import { testInput, realInput } from "./inputs/day3-inputs.js";
 
-const splitRealInput = realInput;
-const splitTestInput = testInput;
 const start = performance.now();
 
-function runPartOne(input) {
-  return doMultiplications(findMultMatches(input));
-}
+const runPartOne = (input) => doMultiplications(findMultMatches(input));
 
-function runPartTwo(input) {
-  return doMultiplications(findMultMatches([findOperationsToDo(input)]));
-}
+const runPartTwo = (input) =>
+  doMultiplications(findMultMatches([findOperationsToDo(input)]));
 
 function findMultMatches(input) {
   return input
@@ -33,13 +28,13 @@ function doMultiplications(matches) {
   }, 0);
 }
 
-const partOneTestResult = runPartOne(splitTestInput);
+const partOneTestResult = runPartOne(testInput);
 // const partOneTestResult = null;
-const partTwoTestResult = runPartTwo(splitTestInput);
+const partTwoTestResult = runPartTwo(testInput);
 // const partTwoTestResult = null;
-const partOneRealResult = runPartOne(splitRealInput);
+const partOneRealResult = runPartOne(realInput);
 // const partOneRealResult = null;
-const partTwoRealResult = runPartTwo(splitRealInput);
+const partTwoRealResult = runPartTwo(realInput);
 // const partTwoRealResult = null;
 
 const end = performance.now();
