@@ -1,7 +1,5 @@
 import { testInput, realInput } from "./inputs/day3-inputs.js";
 
-const input = testInput;
-
 const splitRealInput = realInput;
 const splitTestInput = testInput;
 const start = performance.now();
