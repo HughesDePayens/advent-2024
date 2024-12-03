@@ -5,7 +5,6 @@ const splitTestInput = testInput;
 const start = performance.now();
 
 function runPartOne(input) {
-  console.log(input);
   return doMultiplications(findMultMatches(input));
 }
 
@@ -15,10 +14,7 @@ function runPartTwo(input) {
 
 function findMultMatches(input) {
   return input
-    .map((line) => {
-      const regex = new RegExp(/mul\(\d+,\d+\)/g);
-      return line.match(regex);
-    })
+    .map((line) => line.match(new RegExp(/mul\(\d+,\d+\)/g)))
     .reduce((acc, current) => {
       return [...acc, ...current];
     }, []);
@@ -26,10 +22,7 @@ function findMultMatches(input) {
 
 function findOperationsToDo(input) {
   return input
-    .map((line) => line.split("do()"))
-    .map((operation) => {
-      return operation.map((line) => line.split("don't()")[0]);
-    })
+    .map((line) => line.split("do()").map((line) => line.split("don't()")[0]))
     .join("");
 }
 
